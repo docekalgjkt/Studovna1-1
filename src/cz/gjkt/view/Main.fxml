@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.MainController">
+   <children>
+      <HBox layoutX="101.0" layoutY="78.0" prefHeight="100.0" prefWidth="502.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectStudenti" prefHeight="100.0" prefWidth="150.0" text="Studenti">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#selectPredmety" prefHeight="100.0" prefWidth="150.0" text="Předměty">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#selectSkolniRoky" prefHeight="100.0" prefWidth="150.0" text="Školní Roky">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Line endX="-16.5" endY="50.5" layoutX="109.0" layoutY="25.0" startX="-16.5" startY="381.0" strokeWidth="5.0" />
+      <Line endX="407.0" layoutX="193.0" layoutY="75.0" startX="-100.0" strokeWidth="5.0" />
+      <VBox layoutX="14.0" layoutY="83.0" prefHeight="325.0" prefWidth="67.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#selectStudenti" prefHeight="33.0" prefWidth="67.0" text="Studenti" />
+            <Button mnemonicParsing="false" onAction="#selectPredmety" prefHeight="33.0" prefWidth="67.0" text="Předměty" />
+            <Button layoutX="10.0" layoutY="44.0" mnemonicParsing="false" onAction="#selectSkolniRoky" prefHeight="33.0" prefWidth="67.0" text="Šk. Roky" />
+         </children>
+      </VBox>
+      <Label layoutX="95.0" layoutY="32.0" prefHeight="41.0" prefWidth="85.0" text="Domov">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="7.0" prefHeight="36.0" prefWidth="196.0" text="Projekt Studovna">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
