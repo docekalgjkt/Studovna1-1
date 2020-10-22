@@ -24,6 +24,7 @@
                 <Button mnemonicParsing="false" onAction="#selectStudenti" prefHeight="33.0" prefWidth="67.0" text="Studenti" />
                 <Button mnemonicParsing="false" onAction="#selectPredmety" prefHeight="33.0" prefWidth="82.0" text="Předměty" />
                 <Button mnemonicParsing="false" onAction="#selectSkolniRoky" prefHeight="33.0" prefWidth="67.0" text="Šk. Roky" />
+            <Button layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#selectKurzy" prefHeight="33.0" prefWidth="67.0" text="Kurzy" />
             </children>
         </VBox>
     </children>
