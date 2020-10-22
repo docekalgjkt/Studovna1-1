@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.MainController">
    <children>
       <HBox layoutX="101.0" layoutY="78.0" prefHeight="100.0" prefWidth="502.0">
          <children>
@@ -45,5 +45,10 @@
             <Font size="25.0" />
          </font>
       </Label>
+      <HBox layoutX="93.0" layoutY="178.0" prefHeight="100.0" prefWidth="512.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="99.0" prefWidth="163.0" text="Button" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
