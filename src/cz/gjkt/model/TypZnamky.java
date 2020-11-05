@@ -2,7 +2,7 @@ package cz.gjkt.model;
 
 public class TypZnamky {
 
-        private static int id;
+        private int id;
         private String nazev;
         private String popis;
         private int min;

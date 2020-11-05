@@ -2,7 +2,7 @@ package cz.gjkt.model;
 
 public class Kurz {
 
-    private static int id;
+    private int id;
     private String nazev;
     private int skolniRok;
     private int predmet;

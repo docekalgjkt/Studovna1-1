@@ -2,7 +2,7 @@ package cz.gjkt.model;
 
 public class Student {
 
-    private static int id;
+    private int id;
     private String jmeno;
     private String prijmeni;
     private int rokNastupu;
