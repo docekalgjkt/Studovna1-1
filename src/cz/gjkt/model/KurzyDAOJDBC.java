@@ -6,8 +6,8 @@ import java.util.List;
 public class KurzyDAOJDBC implements IModelDao<Kurz> {
 
     private static final String TABLE = "Kurz";
-    private static final String[] ALL_COLUMNS = {"id","nazev","skolniRok","predmet"};
-    private static final String[] UPDATE_COMUNS = {"nazev","skolniRok","predmet",};
+    private static final String[] ALL_COLUMNS = {"id","nazev", "popis","skolniRok","predmet"};
+    private static final String[] UPDATE_COMUNS = {"nazev", "popis", "skolniRok","predmet",};
 
     @Override
     public int insert(Kurz object) {

@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.Group;
+import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -48,13 +50,15 @@ public class PredmetyController implements Initializable {
 
         TableColumn<String, Predmet> nazevColumn = new TableColumn<>("Název");
         nazevColumn.setCellValueFactory(new PropertyValueFactory<>("nazev"));
+        TableColumn<String, Predmet> popisColumn = new TableColumn<>("Popis");
+        popisColumn.setCellValueFactory(new PropertyValueFactory<>("popis"));
         TableColumn<String, Predmet> rocnikColumn = new TableColumn<>("Ročník");
         rocnikColumn.setCellValueFactory(new PropertyValueFactory<>("rocnik"));
         TableColumn<String, Predmet> zkratkaColumn = new TableColumn<>("Zkratka");
         zkratkaColumn.setCellValueFactory(new PropertyValueFactory<>("zkratka"));
         zkratkaColumn.setEditable(true);
 
-        tableView.getColumns().addAll(nazevColumn,rocnikColumn,zkratkaColumn);
+        tableView.getColumns().addAll(nazevColumn, popisColumn, rocnikColumn, zkratkaColumn);
     }
 
     public void handleSelection(){
@@ -105,6 +109,8 @@ public class PredmetyController implements Initializable {
         // Komponenty
         TextField nazevTextField = new TextField();
         Label nazevLabel = new Label("Název");
+        TextField popisTextField = new TextField();
+        Label popisLabel = new Label ("Popis");
         TextField rocnikTextField = new TextField();
         Label rocnikLabel = new Label("Ročník");
         TextField zkratkaTextField = new TextField();
@@ -112,10 +118,12 @@ public class PredmetyController implements Initializable {
 
         grid.add(nazevLabel, 0, 0);
         grid.add(nazevTextField, 1, 0);
-        grid.add(rocnikLabel, 0, 1);
-        grid.add(rocnikTextField, 1, 1);
-        grid.add(zkratkaLabel,0,2);
-        grid.add(zkratkaTextField,1,2);
+        grid.add(popisLabel, 0, 1);
+        grid.add(popisTextField,1, 1);
+        grid.add(rocnikLabel, 0, 2);
+        grid.add(rocnikTextField, 1, 2);
+        grid.add(zkratkaLabel,0,3);
+        grid.add(zkratkaTextField,1,3);
 
 
         dialog.getDialogPane().setContent(grid);
@@ -125,6 +133,7 @@ public class PredmetyController implements Initializable {
             public Predmet call(ButtonType param) {
                     Predmet predmet = new Predmet();
                     predmet.setNazev(nazevTextField.getText());
+                    predmet.setPopis(popisTextField.getText());
                     predmet.setRocnik(rocnikTextField.getText());
                     predmet.setZkratka(zkratkaTextField.getText());
                     return predmet;
@@ -142,7 +151,24 @@ public class PredmetyController implements Initializable {
     }
 
     public void handleUpravButton(){
+        try {
 
+        Predmet item = (Predmet) tableView.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/Predmet.fxml"));
+        AnchorPane root = (AnchorPane) loader.load();
+        PredmetController controller = (PredmetController) loader.getController();
+        controller.setPredmet(item);
+        /*controller.setNazev(item.getNazev());
+        controller.setZkratka(item.getZkratka());*/
+        controller.setPredmetyScene(tableView.getScene());
+        controller.setPredmetyController(this);
+        Scene scene = new Scene(root);
+        Stage ps = Main.getPrimaryStage();
+        ps.setScene(scene);
+
+
+    }catch (IOException e){e.printStackTrace();}
     }
 
     public void handleZpetButton(){
@@ -241,5 +267,9 @@ public class PredmetyController implements Initializable {
         Main.getPrimaryStage().setScene(scene);
 
 
+    }
+
+    public void refresh() {
+        tableView.refresh();
     }
 }
