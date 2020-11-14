@@ -7,16 +7,14 @@ public class Student {
     private String prijmeni;
     private int rokNastupu;
     private String email;
-    private String fotka;
 
-    public String toString(){return "Student: " + id + ", " + jmeno + ", " + prijmeni + ", " + email + ", " + rokNastupu + ", " + fotka;}
+    public String toString(){return "Student: " + id + ", " + jmeno + ", " + prijmeni + ", " + email + ", " + rokNastupu;}
 
     public int getId(){return id;}
     public String getJmeno(){return jmeno;}
     public String getPrijmeni(){return prijmeni;}
     public int getRokNastupu(){return rokNastupu;}
     public String getEmail() {return email;}
-    public String getFotka() {return fotka;}
 
     public void setId(int id){this.id = id;}
     public void setId(String id){this.id = Integer.parseInt(id);}
@@ -25,6 +23,5 @@ public class Student {
     public void setRokNastupu(int rokNastupu) {this.rokNastupu = rokNastupu;}
     public void setRokNastupu(String rokNastupu){this.rokNastupu = Integer.parseInt(rokNastupu);}
     public void setEmail(String email){this.email = email;}
-    public void setFotka(String fotka){this.fotka  = fotka;}
 
 }

@@ -6,13 +6,13 @@ import java.util.List;
 public class StudentiDAOJDBC2 implements IModelDao<Student> {
 
     private static final String TABLE = "Student";
-    private static final String[] ALL_COLUMNS = {"id","jmeno","prijmeni","email","rokNastupu","fotka"};
-    private static final String[] UPDATE_COMUNS = {"jmeno","prijmeni","email","rokNastupu","fotka"};
+    private static final String[] ALL_COLUMNS = {"id","jmeno","prijmeni","email","rokNastupu"};
+    private static final String[] UPDATE_COMUNS = {"jmeno","prijmeni","email","rokNastupu"};
 
     @Override
     public int insert(Student object) {
         DBManager dbManager = new DBManager();
-        String[] values = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu()),object.getFotka()};
+        String[] values = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu())};
         int id = dbManager.insert(TABLE,UPDATE_COMUNS,values);
         object.setId(id);
         dbManager.close();
@@ -24,7 +24,7 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
         DBManager dbManager = new DBManager();
         List<String[]> values = new ArrayList<>();
         for (Student object : objects){
-            String[] value = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu()),object.getFotka()};
+            String[] value = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu())};
             values.add(value);
         }
         List<Integer> ids = dbManager.insert(TABLE,UPDATE_COMUNS,values);
@@ -42,7 +42,7 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
     @Override
     public int update(Student object) {
         DBManager dbManager = new DBManager();
-        String[] values = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu()),object.getFotka()};
+        String[] values = new String[]{object.getJmeno(),object.getPrijmeni(),object.getEmail(),String.valueOf(object.getRokNastupu())};
         int vysledek = dbManager.update(TABLE,object.getId(),UPDATE_COMUNS,values);
         dbManager.close();
         return vysledek;
@@ -64,7 +64,7 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
         int[] ids = null;
         int i = 0;
         for(Student student : objects){
-            values.add( new String[]{student.getJmeno(),student.getPrijmeni(),student.getEmail(),String.valueOf(student.getRokNastupu()),student.getFotka()});
+            values.add( new String[]{student.getJmeno(),student.getPrijmeni(),student.getEmail(),String.valueOf(student.getRokNastupu())});
             ids[i++] = student.getId();
         }
         int vysledek = dbManager.update(TABLE,ids,UPDATE_COMUNS,values);
@@ -97,7 +97,6 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
             student.setPrijmeni((String) row.get(2));
             student.setEmail((String) row.get(3));
             student.setRokNastupu((int) row.get(4));
-            student.setFotka((String) row.get(5));
         }
         dbManager.close();
         return student;
@@ -124,7 +123,6 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
             student.setPrijmeni((String) row.get(2));
             student.setEmail((String) row.get(3));
             student.setRokNastupu((int) row.get(4));
-            student.setFotka((String) row.get(5));
             studenti.add(student);
         }
         return studenti;
@@ -142,7 +140,6 @@ public class StudentiDAOJDBC2 implements IModelDao<Student> {
             student.setPrijmeni((String) row.get(2));
             student.setEmail((String) row.get(3));
             student.setRokNastupu((int) row.get(4));
-            student.setFotka((String) row.get(5));
             studenti.add(student);
         }
         return studenti;

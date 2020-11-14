@@ -15,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.text.LabelView;
@@ -142,8 +143,24 @@ public class StudentController implements Initializable {
     }
 
     public void handleUpravButton(){
+        try {
 
+            Student item = (Student) tableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/UpravaStudenta.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            UpravaStudentaController controller = (UpravaStudentaController) loader.getController();
+            controller.setStudent(item);
+            controller.setStudentiScene(tableView.getScene());
+            controller.setStudentController(this);
+            Scene scene = new Scene(root);
+            Stage ps = Main.getPrimaryStage();
+            ps.setScene(scene);
+
+
+        }catch (IOException e){e.printStackTrace();}
     }
+
 
     public void handleZpetButton(){
         FXMLLoader loader = new FXMLLoader();
@@ -239,5 +256,9 @@ public class StudentController implements Initializable {
         Main.getPrimaryStage().setScene(scene);
 
 
+    }
+
+    public void refresh() {
+        tableView.refresh();
     }
 }

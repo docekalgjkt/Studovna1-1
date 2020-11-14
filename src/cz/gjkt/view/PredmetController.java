@@ -62,7 +62,7 @@ public class PredmetController implements Initializable {
         setPopis(predmet.getPopis());
     }
 
-    public void handleZahodButton(){
+    public void handleZahodButton() {
         Main.getPrimaryStage().setScene(predmetyScene);
     }
 
