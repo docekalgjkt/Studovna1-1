@@ -125,11 +125,14 @@ public class KurzyController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, Kurz>() {
             @Override
             public Kurz call(ButtonType param) {
-                Kurz kurz = new Kurz();
-                kurz.setNazev(nazevTextField.getText());
-                kurz.setSkolniRok(skolniRokTextField.getText());
-                kurz.setPredmet(predmetTextField.getText());
-                return kurz;
+                if (param == createButtonType) {
+                    Kurz kurz = new Kurz();
+                    kurz.setNazev(nazevTextField.getText());
+                    kurz.setSkolniRok(skolniRokTextField.getText());
+                    kurz.setPredmet(predmetTextField.getText());
+                    return kurz;
+                }
+                return null;
             }
         });
     }

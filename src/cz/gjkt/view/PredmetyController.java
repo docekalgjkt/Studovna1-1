@@ -131,12 +131,14 @@ public class PredmetyController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, Predmet>() {
             @Override
             public Predmet call(ButtonType param) {
+                if (param == createButtonType) {
                     Predmet predmet = new Predmet();
                     predmet.setNazev(nazevTextField.getText());
                     predmet.setPopis(popisTextField.getText());
-                    predmet.setRocnik(rocnikTextField.getText());
                     predmet.setZkratka(zkratkaTextField.getText());
                     return predmet;
+                }
+                return null;
             }
         });
     }

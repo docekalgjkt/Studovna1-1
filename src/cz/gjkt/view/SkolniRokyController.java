@@ -127,11 +127,14 @@ public class SkolniRokyController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, SkolniRok>() {
             @Override
             public SkolniRok call(ButtonType param) {
-                SkolniRok skolniRok = new SkolniRok();
-                skolniRok.setNazev(nazevTextField.getText());
-                skolniRok.setZacatek(zacatekTextField.getText());
-                skolniRok.setKonec(konecTextField.getText());
-                return skolniRok;
+                if (param == createButtonType) {
+                    SkolniRok skolniRok = new SkolniRok();
+                    skolniRok.setNazev(nazevTextField.getText());
+                    skolniRok.setZacatek(zacatekTextField.getText());
+                    skolniRok.setKonec(konecTextField.getText());
+                    return skolniRok;
+                }
+                return null;
             }
         });
     }

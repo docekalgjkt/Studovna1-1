@@ -123,12 +123,15 @@ public class StudentController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, Student>() {
             @Override
             public Student call(ButtonType param) {
-                Student student = new Student();
-                student.setJmeno(jmenoTextField.getText());
-                student.setPrijmeni(prijmeniTextField.getText());
-                student.setEmail(emailTextField.getText());
-                student.setRokNastupu(rokNastupuTextField.getText());
-                return student;
+                if (param == createButtonType) {
+                    Student student = new Student();
+                    student.setJmeno(jmenoTextField.getText());
+                    student.setPrijmeni(prijmeniTextField.getText());
+                    student.setEmail(emailTextField.getText());
+                    student.setRokNastupu(rokNastupuTextField.getText());
+                    return student;
+                }
+                return null;
             }
         });
     }
