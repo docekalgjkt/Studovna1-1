@@ -2,7 +2,7 @@ package cz.gjkt.model;
 
 public class SkolniRok {
 
-    private static int id;
+    private int id;
     private String nazev;
     private String zacatek;
     private String konec;

@@ -2,7 +2,7 @@ package cz.gjkt.model;
 
 public class DruhZnamky {
 
-    private static int id;
+    private int id;
     private String nazev;
     private String datum;
     private String popis;

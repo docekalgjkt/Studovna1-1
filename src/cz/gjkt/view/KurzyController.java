@@ -125,11 +125,14 @@ public class KurzyController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, Kurz>() {
             @Override
             public Kurz call(ButtonType param) {
-                Kurz kurz = new Kurz();
-                kurz.setNazev(nazevTextField.getText());
-                kurz.setSkolniRok(skolniRokTextField.getText());
-                kurz.setPredmet(predmetTextField.getText());
-                return kurz;
+                if (param == createButtonType) {
+                    Kurz kurz = new Kurz();
+                    kurz.setNazev(nazevTextField.getText());
+                    kurz.setSkolniRok(skolniRokTextField.getText());
+                    kurz.setPredmet(predmetTextField.getText());
+                    return kurz;
+                }
+                return null;
             }
         });
     }
@@ -212,6 +215,24 @@ public class KurzyController implements Initializable {
     public void selectSkolniRoky(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/SkolniRoky.fxml"));
+        AnchorPane rootLayout = null;
+        try {
+            rootLayout = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+
+        Main.getPrimaryStage().setScene(scene);
+
+
+    }
+
+    public void selectKurzy(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/Kurzy.fxml"));
         AnchorPane rootLayout = null;
         try {
             rootLayout = (AnchorPane) loader.load();

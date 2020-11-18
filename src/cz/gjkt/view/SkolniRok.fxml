@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.SkolniRokController">
+   <children>
+      <Label layoutX="182.0" layoutY="90.0" text="Název" />
+      <TextField fx:id="nazev" layoutX="226.0" layoutY="86.0" />
+      <TextField fx:id="zacatek" layoutX="226.0" layoutY="161.0" />
+      <Label layoutX="171.0" layoutY="165.0" prefHeight="17.0" prefWidth="44.0" text="Začátek" />
+      <TextField fx:id="konec" layoutX="226.0" layoutY="236.0" />
+      <Label layoutX="182.0" layoutY="240.0" prefHeight="17.0" prefWidth="33.0" text="Konec" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleZahodButton" text="Cancel" />
+      <Button layoutX="482.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleUlozButton" text="Ulož" />
+   </children>
+</AnchorPane>

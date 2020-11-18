@@ -1,8 +1,7 @@
 package cz.gjkt.view;
 
 import cz.gjkt.application.Main;
-import cz.gjkt.model.SkolniRok;
-import cz.gjkt.model.SkolniRokyDAOJDBC;
+import cz.gjkt.model.*;
 import cz.gjkt.model.SkolniRok;
 import cz.gjkt.model.SkolniRokyDAOJDBC;
 import javafx.collections.FXCollections;
@@ -18,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.text.LabelView;
@@ -127,11 +127,14 @@ public class SkolniRokyController implements Initializable {
         dialog.setResultConverter(new Callback<ButtonType, SkolniRok>() {
             @Override
             public SkolniRok call(ButtonType param) {
-                SkolniRok skolniRok = new SkolniRok();
-                skolniRok.setNazev(nazevTextField.getText());
-                skolniRok.setZacatek(zacatekTextField.getText());
-                skolniRok.setKonec(konecTextField.getText());
-                return skolniRok;
+                if (param == createButtonType) {
+                    SkolniRok skolniRok = new SkolniRok();
+                    skolniRok.setNazev(nazevTextField.getText());
+                    skolniRok.setZacatek(zacatekTextField.getText());
+                    skolniRok.setKonec(konecTextField.getText());
+                    return skolniRok;
+                }
+                return null;
             }
         });
     }
@@ -146,7 +149,22 @@ public class SkolniRokyController implements Initializable {
     }
 
     public void handleUpravButton(){
+        try {
 
+            SkolniRok item = (SkolniRok) tableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/SkolniRok.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            SkolniRokController controller = (SkolniRokController) loader.getController();
+            controller.setSkolniRok(item);
+            controller.setSkolniRokyScene(tableView.getScene());
+            controller.setSkolniRokController(this);
+            Scene scene = new Scene(root);
+            Stage ps = Main.getPrimaryStage();
+            ps.setScene(scene);
+
+
+        }catch (IOException e){e.printStackTrace();}
     }
 
     public void handleZpetButton(){
@@ -227,5 +245,26 @@ public class SkolniRokyController implements Initializable {
         Main.getPrimaryStage().setScene(scene);
 
 
+    }
+    public void selectKurzy(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/Kurzy.fxml"));
+        AnchorPane rootLayout = null;
+        try {
+            rootLayout = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+
+        Main.getPrimaryStage().setScene(scene);
+
+
+    }
+
+    public void refresh() {
+        tableView.refresh();
     }
 }

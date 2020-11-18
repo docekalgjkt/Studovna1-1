@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.UpravaStudentaController">
+   <children>
+      <Label layoutX="176.0" layoutY="60.0" prefHeight="17.0" prefWidth="36.0" text="Jméno" />
+      <TextField fx:id="jmeno" layoutX="226.0" layoutY="56.0" />
+      <Label layoutX="168.0" layoutY="125.0" prefHeight="17.0" prefWidth="52.0" text="Příjmení" />
+      <TextField fx:id="prijmeni" layoutX="226.0" layoutY="121.0" />
+      <TextField fx:id="email" layoutX="226.0" layoutY="186.0" />
+      <Label layoutX="176.0" layoutY="190.0" prefHeight="17.0" prefWidth="36.0" text="E-mail" />
+      <TextField fx:id="rokNastupu" layoutX="226.0" layoutY="251.0" />
+      <Label layoutX="142.0" layoutY="255.0" prefHeight="17.0" prefWidth="68.0" text="Rok nástupu" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleZahodButton" text="Cancel" />
+      <Button layoutX="478.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleUlozButton" text="Ulož" />
+   </children>
+</AnchorPane>

@@ -3,7 +3,7 @@ package cz.gjkt.model;
 public class StudentJDBCPersister {
 
     private final String TABLE = "Student";
-    private final String[] COLUMNS = {"jmeno","prijmeni","email","rokNastupu","fotka"};
+    private final String[] COLUMNS = {"jmeno","prijmeni","email","rokNastupu"};
 
 
     public void serialize(Student student){
@@ -13,7 +13,6 @@ public class StudentJDBCPersister {
         values[1] = student.getPrijmeni();
         values[2] = student.getEmail();
         values[3] = "" + student.getRokNastupu();
-        values[4] = student.getFotka();
 
         if (student.getId()>0){
             dbManager.update(TABLE,student.getId(),COLUMNS,values);
