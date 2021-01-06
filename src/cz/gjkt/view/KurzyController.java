@@ -1,10 +1,7 @@
 package cz.gjkt.view;
 
 import cz.gjkt.application.Main;
-import cz.gjkt.model.Kurz;
-import cz.gjkt.model.KurzyDAOJDBC;
-import cz.gjkt.model.Predmet;
-import cz.gjkt.model.PredmetyDAOJDBC;
+import cz.gjkt.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -18,6 +15,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 import javax.swing.text.LabelView;
@@ -148,6 +146,22 @@ public class KurzyController implements Initializable {
 
     public void handleUpravButton(){
 
+        try {
+
+            Kurz item = (Kurz) tableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/UpravaKurzu.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            UpravaKurzuController controller = (UpravaKurzuController) loader.getController();
+            controller.setKurz(item);
+            controller.setKurzyScene(tableView.getScene());
+            controller.setKurzyController(this);
+            Scene scene = new Scene(root);
+            Stage ps = Main.getPrimaryStage();
+            ps.setScene(scene);
+
+
+        }catch (IOException e){e.printStackTrace();}
     }
 
     public void handleZpetButton(){
@@ -247,4 +261,46 @@ public class KurzyController implements Initializable {
 
 
     }
+
+    public void selectTypyZnamek(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/TypyZnamek.fxml"));
+        AnchorPane rootLayout = null;
+        try {
+            rootLayout = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+
+        Main.getPrimaryStage().setScene(scene);
+
+
+    }
+
+    public void refresh() {
+        tableView.refresh();
+    }
+
+    public void selectDruhyZnamek(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/DruhyZnamek.fxml"));
+        AnchorPane rootLayout = null;
+        try {
+            rootLayout = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+
+        Main.getPrimaryStage().setScene(scene);
+
+
+    }
 }
+
+

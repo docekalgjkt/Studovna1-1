@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.UpravaKurzuController">
+    <children>
+        <Label layoutX="186.0" layoutY="60.0" prefHeight="17.0" prefWidth="36.0" text="Název" />
+        <TextField fx:id="nazev" layoutX="226.0" layoutY="56.0" />
+        <Label layoutX="160.0" layoutY="125.0" prefHeight="17.0" prefWidth="60.0" text="Školní Rok" />
+        <Label layoutX="170.0" layoutY="190.0" prefHeight="17.0" prefWidth="52.0" text="Předmět" />
+        <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleZahodButton" text="Cancel" />
+        <Button layoutX="478.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleUlozButton" text="Ulož" />
+      <ChoiceBox fx:id="skolniRok" layoutX="226.0" layoutY="121.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="predmet" layoutX="226.0" layoutY="186.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.UpravaTypuZnamkyController">
+    <children>
+        <Label layoutX="190.0" layoutY="38.0" prefHeight="17.0" prefWidth="36.0" text="Název" />
+        <TextField fx:id="nazev" layoutX="226.0" layoutY="34.0" />
+        <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleZahodButton" text="Cancel" />
+        <Button layoutX="478.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleUlozButton" text="Ulož" />
+        <TextField fx:id="min" layoutX="226.0" layoutY="110.0" />
+        <Label layoutX="201.0" layoutY="114.0" prefHeight="17.0" prefWidth="21.0" text="Min" />
+        <TextField fx:id="popis" layoutX="226.0" layoutY="70.0" />
+        <Label layoutX="194.0" layoutY="74.0" prefHeight="17.0" prefWidth="29.0" text="Popis" />
+      <TextField fx:id="vaha" layoutX="226.0" layoutY="150.0" />
+      <Label layoutX="194.0" layoutY="154.0" prefHeight="17.0" prefWidth="29.0" text="Váha" />
+      <TextField fx:id="rocnik" layoutX="226.0" layoutY="188.0" />
+      <Label layoutX="183.0" layoutY="192.0" prefHeight="17.0" prefWidth="40.0" text="Ročník" />
+      <TextField fx:id="pololeti" layoutX="226.0" layoutY="227.0" />
+      <Label layoutX="174.0" layoutY="231.0" prefHeight="17.0" prefWidth="40.0" text="Pololetí" />
+      <ChoiceBox fx:id="predmet" layoutX="225.0" layoutY="268.0" prefWidth="150.0" />
+      <Label layoutX="171.0" layoutY="272.0" prefHeight="17.0" prefWidth="52.0" text="Předmět" />
+    </children>
+</AnchorPane>
