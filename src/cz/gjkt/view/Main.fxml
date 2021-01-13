@@ -34,6 +34,8 @@
             <Button mnemonicParsing="false" onAction="#selectPredmety" prefHeight="33.0" prefWidth="67.0" text="Předměty" />
             <Button layoutX="10.0" layoutY="44.0" mnemonicParsing="false" onAction="#selectSkolniRoky" prefHeight="33.0" prefWidth="67.0" text="Šk. Roky" />
             <Button layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#selectKurzy" prefHeight="33.0" prefWidth="67.0" text="Kurzy" />
+            <Button layoutX="10.0" layoutY="109.0" mnemonicParsing="false" onAction="#selectTypyZnamek" prefHeight="33.0" prefWidth="67.0" text="Typy Zn." />
+            <Button layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#selectDruhyZnamek" prefHeight="33.0" prefWidth="67.0" text="Druhy Z." />
          </children>
       </VBox>
       <Label layoutX="95.0" layoutY="32.0" prefHeight="41.0" prefWidth="85.0" text="Domov">
@@ -53,12 +55,12 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="TBD">
+            <Button mnemonicParsing="false" onAction="#selectTypyZnamek" prefHeight="100.0" prefWidth="150.0" text="Typy Známek">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" text="TBD">
+            <Button mnemonicParsing="false" onAction="#selectDruhyZnamek" prefHeight="100.0" prefWidth="150.0" text="Druhy Známek">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
                </HBox.margin>
