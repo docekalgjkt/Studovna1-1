@@ -8,6 +8,7 @@
 <AnchorPane prefHeight="438.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.KurzyController">
     <children>
         <TableView fx:id="tableView" layoutX="96.0" layoutY="73.0" prefHeight="335.0" prefWidth="504.0" />
+      <Button layoutX="247.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleOtevriButton" text="Otevři" />
         <Button layoutX="537.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleZpetButton" prefHeight="25.0" prefWidth="55.0" text="Domů" />
         <Button layoutX="107.0" layoutY="412.0" mnemonicParsing="false" onAction="#handlePridejButton" text="Přidej" />
         <Button layoutX="154.0" layoutY="412.0" mnemonicParsing="false" onAction="#handleSmazButton" text="Smaž" />

@@ -8,15 +8,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
-import javafx.util.Callback;
+
 
 import javax.swing.text.LabelView;
 import java.io.IOException;
@@ -27,7 +22,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class KurzController implements Initializable {
+public class KurzController {
+
+    KurzyController kurzyController;
+    Scene kurzyScene;
+    Kurz kurz;
 
     @FXML
     TableView tableView;
@@ -61,13 +60,21 @@ public class KurzController implements Initializable {
         selectedItems = selectionModel.getSelectedItems();
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void setKurzyScene(Scene scene){kurzyScene = scene;}
+    public void setKurzyController(KurzyController controller){kurzyController = controller;}
+    public void setKurz(Kurz kurz) {
+        this.kurz = kurz;
         initColumns();
         fillTable();
         handleSelection();
+
     }
+
+    /*public void setKurz(Kurz kurz){
+        this.kurz = kurz;
+        setNazev(kurz.getNazev());
+    }*/
+
 }
 
 

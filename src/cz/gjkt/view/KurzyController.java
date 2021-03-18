@@ -164,6 +164,26 @@ public class KurzyController implements Initializable {
         }catch (IOException e){e.printStackTrace();}
     }
 
+    public void handleOtevriButton(){
+
+        try {
+
+            Kurz item = (Kurz) tableView.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("../view/Kurz.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            KurzController controller = (KurzController) loader.getController();
+            controller.setKurz(item);
+            controller.setKurzyScene(tableView.getScene());
+            controller.setKurzyController(this);
+            Scene scene = new Scene(root);
+            Stage ps = Main.getPrimaryStage();
+            ps.setScene(scene);
+
+
+        }catch (IOException e){e.printStackTrace();}
+    }
+
     public void handleZpetButton(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("../view/main.fxml"));
