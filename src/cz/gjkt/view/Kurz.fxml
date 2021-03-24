@@ -5,6 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.gjkt.view.KurzController">
    <children>
-      <TableView fx:id="tableView" layoutY="100.0" prefHeight="318.0" prefWidth="380.0" />
+      <TableView fx:id="tableView" layoutY="54.0" prefHeight="318.0" prefWidth="600.0" />
+      <TextField fx:id="nazev" layoutX="14.0" layoutY="14.0" prefHeight="33.0" prefWidth="170.0" />
    </children>
 </AnchorPane>
