@@ -6,9 +6,17 @@ public class StudentiKurzuDAO extends StudentiDAOJDBC {
 
     private Kurz kurz;
 
-    public StudentiKurzuDAO() {
+    public StudentiKurzuDAO(){
+
+    }
+
+    public void setKurz(Kurz kurz){
         this.kurz = kurz;
     }
+
+    /*public StudentiKurzuDAO(Kurz kurz) {
+        this.kurz = kurz;
+    }*/
 
     public StudentiKurzuDAO(int kurzID){
         KurzyDAOJDBC kurzyDAOJDBC = new KurzyDAOJDBC();

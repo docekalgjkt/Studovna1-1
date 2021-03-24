@@ -13,7 +13,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
+import javax.swing.*;
 import javax.swing.text.LabelView;
+import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -31,10 +33,14 @@ public class KurzController {
     @FXML
     TableView tableView;
 
+    /*@FXML
+    TextField nazev;*/
+
     StudentiKurzuDAO studentiKurzuDAO = new StudentiKurzuDAO();
     List<Student> studentiKurzu;
     ObservableList<Student> items;
     ObservableList<Student> selectedItems = null;
+
 
     public void fillTable(){
         studentiKurzu = studentiKurzuDAO.getAll();
@@ -61,19 +67,24 @@ public class KurzController {
     }
 
     public void setKurzyScene(Scene scene){kurzyScene = scene;}
+
     public void setKurzyController(KurzyController controller){kurzyController = controller;}
+
+    /*private void setNazev(String nazev)
+    {this.nazev.setText(nazev);}*/
+
     public void setKurz(Kurz kurz) {
+        studentiKurzuDAO.setKurz(kurz);
         this.kurz = kurz;
         initColumns();
         fillTable();
         handleSelection();
+        //setNazev(kurz.getNazev());
 
     }
 
-    /*public void setKurz(Kurz kurz){
-        this.kurz = kurz;
-        setNazev(kurz.getNazev());
-    }*/
+
+
 
 }
 
