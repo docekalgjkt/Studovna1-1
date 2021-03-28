@@ -11,11 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
-
-import javax.swing.*;
-import javax.swing.text.LabelView;
-import java.awt.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -33,8 +30,8 @@ public class KurzController {
     @FXML
     TableView tableView;
 
-    /*@FXML
-    TextField nazev;*/
+    @FXML
+    TextField nazev;
 
     StudentiKurzuDAO studentiKurzuDAO = new StudentiKurzuDAO();
     List<Student> studentiKurzu;
@@ -70,8 +67,8 @@ public class KurzController {
 
     public void setKurzyController(KurzyController controller){kurzyController = controller;}
 
-    /*private void setNazev(String nazev)
-    {this.nazev.setText(nazev);}*/
+    private void setNazev(String nazev)
+    {this.nazev.setText(nazev);}
 
     public void setKurz(Kurz kurz) {
         studentiKurzuDAO.setKurz(kurz);
@@ -79,10 +76,28 @@ public class KurzController {
         initColumns();
         fillTable();
         handleSelection();
-        //setNazev(kurz.getNazev());
+        setNazev(kurz.getNazev());
 
     }
 
+
+    public void selectKurzy(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/Kurzy.fxml"));
+        AnchorPane rootLayout = null;
+        try {
+            rootLayout = (AnchorPane) loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(rootLayout);
+
+        Main.getPrimaryStage().setScene(scene);
+
+
+    }
 
 
 

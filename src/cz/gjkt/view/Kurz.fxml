@@ -7,5 +7,6 @@
    <children>
       <TableView fx:id="tableView" layoutY="54.0" prefHeight="318.0" prefWidth="600.0" />
       <TextField fx:id="nazev" layoutX="14.0" layoutY="14.0" prefHeight="33.0" prefWidth="170.0" />
+      <Button layoutX="534.0" layoutY="372.0" mnemonicParsing="false" onAction="#selectKurzy" text="Zpět" />
    </children>
 </AnchorPane>
